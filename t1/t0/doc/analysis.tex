@@ -1,67 +1,165 @@
 \section{Theoretical Analysis}
 \label{sec:analysis}
 
-In this section, the circuit shown in Figure~\ref{fig:rc} is analysed
-theoretically, in terms of its time and frequency responses.
+In this section, the circuit shown in Figure~\ref{fig:circuito_t1} is analysed
+theoretically, using the mesh and nodal methods.
 
-\section{Time response}
+\subsection{Mesh Method}
 
-The circuit consists of a single V-R-C loop where a current $i(t)$ circulates. The
-voltage source $v_I(t)$ drives its input, and the output voltage $v_O(t)$ is taken from
-the capacitor terminals. Applying the Kirchhoff Voltage Law (KVL), a single
-equation for the single loop in the circuit can be written as
+The circuit consists of 4 meshes, with 7 resistors, 2 independent sources ($V_a$ for voltage source and $I_d$ for current source) and 2 dependent sources ($V_c$ for current controlled voltage source and $I_b$ for voltage controlled current source).
+
+\begin{figure}[h] \centering
+\includegraphics[width=0.5\linewidth]{circuito_T1_Malhas.pdf}
+\caption{Mesh method analysis.}
+\label{fig:malha}
+\end{figure}
+
+Apllying Kirchoff's Voltage Law (KVL) to the two meshes on the left ($I_a$ is the current for the top one, $I_c$ for the bottom one, $I_b$ for the top right one, $I_d$ for the bottom right, as ilustrated in Figure~\ref{fig:malha}, we get two equations:
 
 \begin{equation}
-  Ri(t) + v_O(t) = v_I(t).
-  \label{eq:kvl}
+  (R_4+R_3+R_1)I_a-R_3I_b-R_4I_c=0.
+  \label{eq:kvl1}
 \end{equation}
 
-Because $v_O$ is the voltage between capacitor C's plates, it is related to the
-current $i$ by
 \begin{equation}
-  i(t) = C\frac{dv_O}{dt}.
-\end{equation}
-
-Hence, Equation~(\ref{eq:kvl}) can be rewritten as
-\begin{equation}
-  RC\frac{dv_O}{dt} + v_O(t) = v_I.
+  -R_4I_a+(R_6+R_7-K_c+R_4)I_c=0.
   \label{eq:kvl2}
 \end{equation}
 
-Equation~(\ref{eq:kvl2}) is a linear differencial equation whose solution is a
-superposition of a natural solution $v_{On}$ and a forced solution $v_{Of}$:
+
+The other two meshes have current sources, so we cannot apply KVL to them. Instead, we recognize the relation between the sources and the meshes' currents: $I_d$ is equal to the current coming from the $I_d$ source and the following equation: 
 
 \begin{equation}
-  v_O(t) = v_{On}(t) + v_{Of}(t).
-  \label{eq:vo_sol}
+  I_b=K_bV_b.
 \end{equation}
 
-As learned in the theory classes the natural solution is of the form
-\begin{equation}
-  v_{On}(t) = Ae^{-\frac{t}{RC}},
-  \label{eq:vo_nat}
-\end{equation}
-where $A$ is an integration constant.
-
-The forced solution is of the form given in Equation~(\ref{eq:vo_for}) and is
-illustrated in Figure~\ref{fig:forced}.
+Now, because
 
 \begin{equation}
-  V_{Of}(t) = |\bar{V}_{Of}| cos(\omega t + \angle \bar{V}_{Of}),
-  \label{eq:vo_for}
+  V_b=R_3(I_b-I_a).
 \end{equation}
+ 
+ we get:
+ 
+ \begin{equation}
+  I_b=K_bR_3(I_b-I_a).
+  \label{eq:kvl3}
+\end{equation}
+ 
 
-\lipsum[1-1]
+The solution is obtained by solving Equations~(\ref{eq:kvl1}), ~(\ref{eq:kvl2}) and ~(\ref{eq:kvl3}) and is illustrated in Table~\ref{tab:mesh}.
 
+\begin{table}[H]
+  \centering
+  \begin{tabular}{ |c|c|}
+ \hline
+ {\bf Name} & {\bf Value[A or V]} \\
+ \hline\hline
+  $@I_a$ & \partialinput{4}{4}{malhas.tex}\\
+ \hline
+  $@I_b$ & \partialinput{9}{9}{malhas.tex} \\
+ \hline
+ $@I_c$ & \partialinput{14}{14}{malhas.tex} \\
+ \hline
+ $I_d$ & \partialinput{19}{19}{malhas.tex} \\
+ \hline
+ $V_b$ & \partialinput{24}{24}{malhas.tex} \\
+ \hline
+ $V_c$ & \partialinput{29}{29}{malhas.tex} \\
+ \hline
+\end{tabular}
+  \caption{Mesh Method. A variable preceded by @ is of type {\em current}
+    and expressed in Ampere; other variables are of type {\it voltage} and expressed in
+    Volt.}
+  \label{tab:mesh}
+\end{table}
+
+
+\subsection{Nodal Method}
+
+The circuit consists of 8 nodes. These were numbered from 0 to 7 as illustrated in the image below. The node 0 was chosen as the reference node. 
 
 \begin{figure}[h] \centering
-\includegraphics[width=0.8\linewidth]{forced.eps}
-\caption{Forced sinusoidal response.}
-\label{fig:forced}
+\includegraphics[width=0.5\linewidth]{circuito_T1_Nos.pdf}
+\caption{Node method analysis.}
+\label{fig:nos}
 \end{figure}
 
-\section{Frequency response}
 
-\lipsum[1-1]
+Apllying Kirchoff's Current Law (KCL) to nodes 1, 2, 5 and 6 we get four equations:
+
+\begin{equation}
+  -V_1G_1-(V_2-V_1)G_2+(V_4-V_1)G_3=0.
+  \label{eq:kcl1}
+\end{equation}
+
+\begin{equation}
+  K_b(V_1-V_4)+(V_1-V_2)G_2=0.
+  \label{eq:kcl2}
+\end{equation}
+
+\begin{equation}
+  I_d+(V_4-V_5)G_5-K_b(V_1-V_4)=0.
+  \label{eq:kcl3}
+\end{equation}
+
+\begin{equation}
+  (V_3-V_6)G_6+(V_7-V_6)G_7=0.
+  \label{eq:kcl4}
+\end{equation}
+
+In addition, because voltage source $V_a$ is connected between the reference node and a non reference node, we simply set the voltage at the non-reference node equal to the voltage of the voltage source.
+
+\begin{equation}
+  V_3=-V_a.
+  \label{eq:kcl5}
+\end{equation}
+
+As the voltage source $V_c$ is between two non reference nodes then it forms a supernode whose analysis is done as following:
+
+\begin{equation}
+  (V_3-V_4)G_4+(V_1-V_4)G_3+(V_5-V_4)G_5-I_d+(V_6-V_7)G_7=0.
+  \label{eq:kcl6}
+\end{equation}
+
+\begin{equation}
+  (V_4-V_7)=K_c(V_3-V_6)G_6.
+  \label{eq:kcl7}
+\end{equation}
 
 
+The solution is obtained by solving Equations~(\ref{eq:kcl1}), ~(\ref{eq:kcl2}), ~(\ref{eq:kcl3}), ~(\ref{eq:kcl4}), ~(\ref{eq:kcl5}), ~(\ref{eq:kcl6}) and ~(\ref{eq:kcl7}) and is illustrated in Table~\ref{tab:nodal}.
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{ |c|c|}
+ \hline
+ {\bf Name} & {\bf Value[A or V]} \\
+ \hline\hline
+  $V_0$ & \partialinput{4}{4}{nos.tex}\\
+ \hline
+ $V_1$ & \partialinput{9}{9}{nos.tex} \\
+ \hline
+ $V_2$ & \partialinput{14}{14}{nos.tex} \\
+ \hline
+ $V_3$ & \partialinput{19}{19}{nos.tex} \\
+ \hline
+ $V_4$ & \partialinput{24}{24}{nos.tex} \\
+ \hline
+ $V_5$ & \partialinput{29}{29}{nos.tex} \\
+\hline
+ $V_6$ & \partialinput{34}{34}{nos.tex} \\
+ \hline
+ $V_7$ & \partialinput{39}{39}{nos.tex} \\
+ \hline
+ $V_b$ & \partialinput{44}{44}{nos.tex} \\
+ \hline
+ $V_c$ & \partialinput{49}{49}{nos.tex} \\
+ \hline
+ $@I_b$ & \partialinput{54}{54}{nos.tex} \\
+ \hline
+\end{tabular}
+  \caption{Nodal Method. A variable preceded by @ is of type {\em current}
+    and expressed in Ampere; other variables are of type {\it voltage} and expressed in Volt.}
+  \label{tab:nodal}
+\end{table}

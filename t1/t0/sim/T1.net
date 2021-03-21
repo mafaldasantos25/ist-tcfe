@@ -15,22 +15,20 @@ Gib 5 2 1 4 7.01231226489m
 
 .control
 
+
 op
+.options savecurrents
 
 echo "********************************************"
 echo  "Operating point"
 echo "********************************************"
 
 echo "op_TAB"
-print v(1)
-print v(2)
-print v(3)
-print v(4)
-print v(5)
-print v(6)
-print v(7)
+
+print all
 print v(1,4)
 print v(4,7)
+
 echo "op_END"
 .endc
 .end

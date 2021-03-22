@@ -30,5 +30,6 @@ print v(1,4)
 print v(4,7)
 
 echo "op_END"
+quit
 .endc
 .end

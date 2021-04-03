@@ -1,0 +1,323 @@
+\section{Theoretical Analysis}
+\label{sec:analysis}
+
+In this section, the circuit shown in Figure~\ref{fig:circuito_t2} is analysed
+theoretically, mainly with Kirchoff's Current Law, initially for t<0, then the natural solution, forced and natural solution, and frequency response for t>0.
+
+The circuit consists of 8 nodes. These were numbered from 1 to 8 as illustrated in Figure \ref{fig:circuito_t2}. Node 4 is the reference node, because it's connected to ground. The circuit contains 7 resistors, 1 capacitor, 1 independent source ($V_s$ for voltage source) and 2 dependent sources ($V_d$ for current controlled voltage source and $I_b$ for voltage controlled current source).
+
+
+\subsection{RC circuit (t<0)}
+
+For t<0, vs(t)=Vs.
+
+´
+Apllying Kirchoff's Current Law (KCL) to nodes 2, 3, 4, 6 and 7 we get four equations:
+
+\begin{equation}
+  (V_2-V_1)G_1+(V_2-V_3)G_2+(V_2-V_5)G_3=0.
+  \label{eq:n2}
+\end{equation}
+
+\begin{equation}
+  K_b(V_2-V_5)+(V_2-V_3)G_2=0.
+  \label{eq:n3}
+\end{equation}
+
+\begin{equation}
+  V_4=0.
+  \label{eq:n4}
+\end{equation}
+
+\begin{equation}
+  -I_c+(V_5-V_6)G_5-K_b(V_2-V_5)=0.
+  \label{eq:n6}
+\end{equation}
+
+\begin{equation}
+  (V_4-V_7)G_6+(V_8-V_7)G_7=0.
+  \label{eq:n7}
+\end{equation}
+
+In addition, because voltage source $V_s$ is connected between the reference node and a non reference node, we simply set the voltage at the non-reference node equal to the voltage of the voltage source.
+
+\begin{equation}
+  V_1=V_s.
+  \label{eq:n1}
+\end{equation}
+
+As the voltage source $V_d$ is between two non reference nodes then it forms a supernode whose analysis is done as following:
+
+\begin{equation}
+  (V_4-V_5)G_4+(V_2-V_5)G_3+(V_6-V_5)G_5+I_c+(V_7-V_8)G_7=0.
+  \label{eq:superno}
+\end{equation}
+
+\begin{equation}
+  (V_5-V_8)=K_c(V_4-V_7)G_6.
+  \label{eq:Vd}
+\end{equation}
+
+Recognizing a steady state in our analysis of this RC circuit, we can also see that:
+
+\begin{equation}
+  I_c=0.
+  \label{eq:Ic}
+\end{equation}
+
+The solution is obtained by solving Equations~(\ref{eq:n1}), ~(\ref{eq:n2}), ~(\ref{eq:n3}), ~(\ref{eq:n4}), ~(\ref{eq:superno}), ~(\ref{eq:Vd}), ~(\ref{eq:n6}) and ~(\ref{eq:n7}), which are shown in matrix form in the Appendix. The results are illustrated in Table~\ref{tab:tab1}.
+
+\begin{table}[ht]
+  \centering
+  \begin{tabular}{ |c|c|}
+ \hline
+ {\bf Name} & {\bf Value[A or V]} \\
+ \hline\hline
+  $V_1$ & \partialinput{4}{4}{../mat/tab1.tex}\\
+ \hline
+ $V_2$ & \partialinput{9}{9}{../mat/tab1.tex} \\
+ \hline
+ $V_3$ & \partialinput{14}{14}{../mat/tab1.tex} \\
+ \hline
+ $V_4$ & \partialinput{19}{19}{../mat/tab1.tex} \\
+ \hline
+ $V_5$ & \partialinput{24}{24}{../mat/tab1.tex} \\
+ \hline
+ $V_6$ & \partialinput{29}{29}{../mat/tab1.tex} \\
+\hline
+ $V_7$ & \partialinput{34}{34}{../mat/tab1.tex} \\
+ \hline
+ $V_8$ & \partialinput{39}{39}{../mat/tab1.tex} \\
+ \hline
+ $@I_R1$ & \partialinput{44}{44}{../mat/tab1.tex} \\
+ \hline
+ $@I_R2$ & \partialinput{49}{49}{../mat/tab1.tex} \\
+ \hline
+ $@I_R3$ & \partialinput{54}{54}{../mat/tab1.tex} \\
+ \hline
+ $@I_R4$ & \partialinput{59}{59}{../mat/tab1.tex} \\
+ \hline
+ $@I_R5$ & \partialinput{64}{64}{../mat/tab1.tex} \\
+ \hline
+ $@I_R6$ & \partialinput{69}{69}{../mat/tab1.tex} \\
+ \hline
+ $@I_R7$ & \partialinput{74}{74}{../mat/tab1.tex} \\
+ \hline
+ $@I_b$ & \partialinput{79}{79}{../mat/tab1.tex} \\
+ \hline
+ $@I_c$ & \partialinput{84}{84}{../mat/tab1.tex} \\
+ \hline
+ $@I_d$ & \partialinput{89}{89}{../mat/tab1.tex} \\
+ \hline
+\end{tabular}
+  \caption{Nodal voltages and branch currents for t<0. A variable preceded by @ is of type {\em current}
+    and expressed in Ampere; other variables are of type {\it voltage} and expressed in Volt.}
+  \label{tab:tab1}
+\end{table}
+
+\subsection{Determining $R_eq$}
+
+To determine the Natural Solution of $V_6$(t) for t>0, we must obtain the value of the equivalent resistance as seen from the capacitor. This is due to the time constant being $R_eq$C, thus explaining the need for this step.
+
+To obtain this value, we "turn off" the independent sources in the circuit, and replace the capacitor with a voltage source $V_x$, whose value is $V_6$-$V_8$, $V_6$ and $V_8$ being the voltages obtained for t<0. Recognizing this continuity in the circuit, we use these as "inital conditions" to find the solution of $R_eq$.
+
+First we replace Vs with a short circuit (Vs=0V) and replace equation ~(\ref{eq:n6}) with the new equation for node 6:
+
+\begin{equation}
+  V_6-V_8=V_x.
+  \label{eq:V_x}
+\end{equation}
+
+Then we replace equation ~(\ref{eq:superno}) with a new supernode:
+
+\begin{equation}
+  (V_3-V_4)G_4+(V_6-V_7)G_7+(V_2-V_5)G_3-I_b=0.
+  \label{eq:superno2}
+\end{equation}
+
+$R_eq$ will be the result of $V_x$/$I_x$, $I_x$=-$I_c$.
+
+The solution is obtained by solving Equations~(\ref{eq:n1}), ~(\ref{eq:n2}), ~(\ref{eq:n3}), ~(\ref{eq:n4}), ~(\ref{eq:superno2}), ~(\ref{eq:Vd}), ~(\ref{eq:V_x}) and ~(\ref{eq:n7}), and is illustrated in Table~\ref{tab:tab2}.
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{ |c|c|}
+ \hline
+ {\bf Name} & {\bf Value[A or V or Ohm]} \\
+ \hline
+ $V_1$ & \partialinput{4}{4}{../mat/tab2.tex}\\
+ \hline
+ $V_2$ & \partialinput{9}{9}{../mat/tab2.tex} \\
+ \hline
+ $V_3$ & \partialinput{14}{14}{../mat/tab2.tex} \\
+ \hline
+ $V_4$ & \partialinput{19}{19}{../mat/tab2.tex} \\
+ \hline
+ $V_5$ & \partialinput{24}{24}{../mat/tab2.tex} \\
+ \hline
+ $V_6$ & \partialinput{29}{29}{../mat/tab2.tex} \\
+\hline
+ $V_7$ & \partialinput{34}{34}{../mat/tab2.tex} \\
+ \hline
+ $V_8$ & \partialinput{39}{39}{../mat/tab2.tex} \\
+ \hline
+ $@I_R1$ & \partialinput{44}{44}{../mat/tab2.tex} \\
+ \hline
+ $@I_R2$ & \partialinput{49}{49}{../mat/tab2.tex} \\
+ \hline
+ $@I_R3$ & \partialinput{54}{54}{../mat/tab2.tex} \\
+ \hline
+ $@I_R4$ & \partialinput{59}{59}{../mat/tab2.tex} \\
+ \hline
+ $@I_R5$ & \partialinput{64}{64}{../mat/tab2.tex} \\
+ \hline
+ $@I_R6$ & \partialinput{69}{69}{../mat/tab2.tex} \\
+ \hline
+ $@I_R7$ & \partialinput{74}{74}{../mat/tab2.tex} \\
+ \hline
+ $@I_b$ & \partialinput{79}{79}{../mat/tab2.tex} \\
+ \hline
+ $@I_c$ & \partialinput{84}{84}{../mat/tab2.tex} \\
+ \hline
+ $@I_d$ & \partialinput{89}{89}{../mat/tab2.tex} \\
+ \hline
+ $*R_eq$ & \partialinput{89}{89}{../mat/tab2.tex} \\
+ \hline
+\end{tabular}
+  \caption{Nodal Method. A variable preceded by @ is of type {\em current}
+    and expressed in Ampere and one preceded by * is of type {\em resistance} and is expressed in Ohm; other variables are of type {\it voltage} and expressed in Volt.}
+  \label{tab:tab2}
+\end{table}
+
+
+\subsection{Determining $V_6$(t)}
+
+Now that we have $R_eq$, we can plot the natural solution as:
+
+\begin{equation}
+  V_6(t)=Vx*exp(-t/R_eq*C).
+  \label{eq:natsol}
+\end{equation}
+
+This result is shown in figure \ref{fig:solnat}:
+
+\begin{figure}[h] \centering
+\includegraphics[width=0.5\linewidth]{solnat.eps}
+\caption{Natural Solution of $V_6(t)$ for t>=0.}
+\label{fig:solnat}
+\end{figure}
+
+\pagebreak
+\subsection{Determining the Forced Solution for $V_6$(t)}
+\label{sec:passo4}
+
+To obtain the phasor voltage of $V_6$ ($PV_6$), we replace $V_s$ with its complex amplitude 1, and replace the capacitor with its Impedance $Z_c$=1/(jwC).
+
+First we obtain the equation for $I_c$:
+
+\begin{equation}
+  I_c=(V_6-V_8)/Z_c.
+  \label{eq:icimpe}
+\end{equation}
+
+For the supernode, we use the following equation:
+
+\begin{equation}
+  (V_1-V_2)G_1+(V_4-V_5)G_4+I_d=0.
+  \label{eq:supernopasso4}
+\end{equation}
+
+The solution is obtained by solving Equations~(\ref{eq:n1}), ~(\ref{eq:n2}), ~(\ref{eq:n3}), ~(\ref{eq:n4}), ~(\ref{eq:supernopasso4}), ~(\ref{eq:Vd}), ~(\ref{eq:n6}) and ~(\ref{eq:n7}), and is illustrated in Table~\ref{tab:tab3}.
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{ |c|c|}
+ \hline
+ {\bf Name} & {\bf Value[V]} \\
+ \hline
+ $PV_1$ & \partialinput{4}{4}{../mat/tab3.tex}\\
+ \hline
+ $PV_2$ & \partialinput{9}{9}{../mat/tab3.tex} \\
+ \hline
+ $PV_3$ & \partialinput{14}{14}{../mat/tab3.tex} \\
+ \hline
+ $PV_4$ & \partialinput{19}{19}{../mat/tab3.tex} \\
+ \hline
+ $PV_5$ & \partialinput{24}{24}{../mat/tab3.tex} \\
+ \hline
+ $PV_6$ & \partialinput{29}{29}{../mat/tab3.tex} \\
+\hline
+ $PV_7$ & \partialinput{34}{34}{../mat/tab3.tex} \\
+ \hline
+ $PV_8$ & \partialinput{39}{39}{../mat/tab3.tex} \\
+ \hline
+\end{tabular}
+  \caption{Phasor voltages. Variables are of type {\it voltage} and expressed in Volt.}
+  \label{tab:tab3}
+\end{table}
+
+
+\subsection{Determining the total solution}
+
+Now we finally have the solution for $V_6$(t) (t>0), with the following expression:
+
+\begin{equation}
+  V_6(t)=Vx*exp(-t/R_eq*C)+PV_6*sin(wt).
+  \label{eq:totalsol}
+\end{equation}
+
+Because in subsection 2.1 we calculated the values for t<0, we can plot the final solution, as shown in figure \ref{fig:soltotal}:
+
+\begin{figure}[h] \centering
+\includegraphics[width=0.5\linewidth]{soltotal.eps}
+\caption{Final solution of $V_6(t)$ (orange) and $V_s(t)$ (blue).}
+\label{fig:soltotal}
+\end{figure}
+
+
+\subsection{Frequency Response}
+
+To analize the frequency response, we used the same system of equations as found in subsection ~(\ref{sec:passo4}), calculating $PV_6$,$PV_s$ and $PV_6$-$PV_8$ ($PV_c$) for different frequencies. For each result of these complex vectors, the absolute value and the angle was saved. 
+
+The absolute values are shown in figure \ref{fig:mag}, in dB, representing the magnitude response, with the frequencies in a logarithmic scale.
+
+\begin{figure}[h] \centering
+\includegraphics[width=0.5\linewidth]{mag.eps}
+\caption{Magnitude response of $V_6(t)$ (red), $V_c(t)$ (blue) and $V_s(t)$ (green)}
+\label{fig:mag}
+\end{figure}
+
+The magnitude of $V_s(t)$ doesn't change with the frequency of the signal and therefore it always´1 (0 in dB). However, the magnitudes of $V_6$ and $V_c(t)$ change with the frequency because of the capacitor's Impedance ($Z_c$=1/jwC). The $V_c(t)$ magnitude changes accordingly to what is expected of an RC circuit, with the increase of the frequency reducing the impedance and magnitude.
+
+Because the phase of the Voltage Signal $V_s$ is 0, the phase of each voltage, for each frequency, is just the angles saved, in degrees. The plot for these is also shown in figure \ref{fig:phase}, with the frequencies also in a logarithmic scale.
+
+\begin{figure}[h] \centering
+\includegraphics[width=0.5\linewidth]{phase.eps}
+\caption{Phase response of $V_6(t)$ (red) and $V_c(t)$ (blue).}
+\label{fig:phase}
+\end{figure}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

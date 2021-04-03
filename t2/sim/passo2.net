@@ -1,0 +1,21 @@
+*T1
+.include dados2.txt
+
+.control
+
+
+op
+.options savecurrents
+
+echo "********************************************"
+echo  "Operating point"
+echo "********************************************"
+
+echo "op_TAB"
+
+print all
+
+echo "op_END"
+quit
+.endc
+.end

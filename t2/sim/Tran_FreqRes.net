@@ -1,0 +1,35 @@
+*T1
+.include dados4.txt
+
+.control
+
+*makes plots in color
+set hcopypscolor=0
+set color0=white
+set color1=black
+set color2=red
+set color3=blue
+set color4=violet
+set color5=rgb:3/8/0
+set color6=rgb:4/0/0
+
+*transient analysis
+tran 1u 20ms 0
+hardcopy trvs.ps v(1)
+echo trvs_FIG
+hardcopy trv6.ps v(6)
+echo trv6_FIG
+
+*frequency response
+ac dec 1000 0.1 1000000
+hardcopy acm.ps db(v(1)) db(v(6))
+echo acm_FIG
+hardcopy pr.ps vp(1)*(180/pi) vp(6)*(180/pi) 
+echo pr_FIG
+
+quit
+.endc
+.end
+
+.endc
+.end

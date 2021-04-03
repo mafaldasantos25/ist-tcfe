@@ -1,0 +1,49 @@
+\pagebreak
+\section{Conclusion}
+\label{sec:conclusion}
+
+We have successfully analysed theoretically the given circuit using the Octave maths tool to calculate the transient and frequency response. By comparing with the results obtained with the simulation done with the Ngspice tool, we could see they were mostly  identical with relative errors of the ordem of magnitude 10 to the power of -5, which allowed us to confirm the validity of the methods and their precision in simple circuits like the one given.
+ 
+\pagebreak
+\section{Appendix}
+\begin{equation}
+\begin{pmatrix}
+    -G1 & G1+G2+G3 & -G2 & 0 & -G3 & 0 & 0 & 0 \\
+    0 & Kb+G2 & -G2 & 0 & -Kb & 0 & 0 & 0 \\
+    0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
+    0 & -Kb & 0 & 0 & G5+Kb & -G5 & 0 & 0 \\
+    0 & 0 & 0 & G6 & 0 & 0 & -G6-G7 & G7 \\
+    1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+    0 & G3 & 0 & G4 & -G4-G3-G5 & G5 & G7 & -G7 \\
+    0 & 0 & 0 & -KcG6 & 1 & 0 & KcG6 & -1\\
+    
+\end{pmatrix}
+\end{equation}
+
+\begin{equation}
+\begin{pmatrix}
+  V1 \\
+  V2 \\
+  V3 \\
+  V4 \\
+  V5 \\
+  V6 \\
+  V7 \\
+  V8 \\
+ 
+\end{pmatrix}
+\end{equation}
+
+\begin{equation}
+\begin{pmatrix} 
+  0 \\
+  0 \\
+  0 \\
+  0 \\
+  0 \\
+  Vs \\
+  0 \\
+  0 \\
+\end{pmatrix}
+\end{equation}
+

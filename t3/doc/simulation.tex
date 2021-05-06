@@ -1,0 +1,108 @@
+\section{Simulation Analysis}
+\label{sec:simulation}
+
+\subsection{Envelope detector}
+The simulated results of the envelope detector output are compared to the theoretical results as shown below in Figures \ref{fig:sim_env} and \ref{fig:theo_env}, respectively.
+
+
+\begin{figure} [ht]
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{../sim/transv2.pdf}
+  \captionof{figure}{Simulated Envelope detector voltage output}
+  \label{fig:sim_env}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{venvlope.eps}
+  \captionof{figure}{Theoritical Envelope detector voltage output}
+  \label{fig:theo_env}
+\end{minipage}
+\end{figure}
+
+The theoretical ripple in the envelope detector is considerably smaller than the simulated one, due to the approximations made in the theoretical diode model.
+
+
+
+
+\pagebreak
+\subsection{Output Voltage}
+The simulated results of the voltage output are compared to the theoretical results as shown below in Figures \ref{fig:sim_vout} and \ref{fig:theo_vout}, respectively.
+
+\begin{figure} [h]
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{../sim/transv4.pdf}
+  \captionof{figure}{Simulated voltage output.}
+  \label{fig:sim_vout}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{vout.eps}
+  \captionof{figure}{Theoritical voltage output.}
+  \label{fig:theo_vout}
+\end{minipage}
+\end{figure}
+
+Once again, the theoretical ripple is considerably smaller than the simulated one, due to the approximations made in the theoretical diode model.
+
+It is also notable that the output voltage values are always higher than both 12V and the simulation's values, which vary between higher and lower than 12V.  
+
+\pagebreak
+The voltage output errors ($V_{out}$ - 12) of the simulation and the theoretical analysis are shown above in Figures \ref{fig:sim_error} and \ref{fig:theo_error}, respectively.
+
+
+\begin{figure}
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=0.8\linewidth]{../sim/trans1.pdf}
+  \captionof{figure}{Simulated voltage output error.}
+  \label{fig:sim_error}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=0.8\linewidth]{erro.eps}
+  \captionof{figure}{Theoritical voltage output error.}
+  \label{fig:theo_error}
+\end{minipage}
+\end{figure}
+
+The output voltage error is always positive and higher than the simulation's, which varies between positive and negative.
+
+
+Comparing the Voltage ripple and VDC of the simulated and theoretical analysis in tables \ref{tab:sim} and \ref{tab:tab1}, respectively:
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|l|r|}
+    \hline    
+    {\bf Name} & {\bf Value [V]} \\ \hline
+    \input{../sim/passo2}
+  \end{tabular}
+  \caption{Simulated results. mean(v(4)) is the average outuput voltage and vecmax(v(4))-vecmin(v(4)) is the maximum value of ripple. The last value is the merit of the circuit.}
+  
+  \label{tab:sim}
+\end{table}
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{ |c|c|}
+ \hline
+ {\bf Name} & {\bf Value[V]} \\
+ \hline\hline
+  $V_{DC}$ & \partialinput{4}{4}{../mat/tab1.tex}\\
+ \hline
+ $V_{ripple}$ & \partialinput{9}{9}{../mat/tab1.tex} \\
+ \hline
+ \end{tabular}
+  \caption{Theoretical values. $V_{DC}$ is the average outuput voltage.}
+  \label{tab:tab1}
+\end{table}
+
+The relative error for the average output voltage is aproximately 0.713\%.
+The relative error for the maximum ripple is aproximately -34.22\%. These errors are once again due to the approximations made in the theoretical diode model.
+
+The merit value is 3.754540e-01.

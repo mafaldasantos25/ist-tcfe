@@ -1,0 +1,72 @@
+t3ll
+Vs 1 3 sin 0 76.5 50
+DA1 1 2 Diode1
+DA2 3 2 Diode1
+DA3 0 3 Diode1
+DA4 0 1 Diode1
+.model Diode1 D
+Rs 2 0 8.1k
+C1 2 0 11.6uF
+RL 2 4 8k
+DB1 4 5 Diode1
+DB2 5 6 Diode1
+DB3 6 7 Diode1
+DB4 7 8 Diode1
+DB5 8 9 Diode1
+DB6 9 10 Diode1
+DB7 10 11 Diode1
+DB8 11 12 Diode1
+DB9 12 13 Diode1
+DB10 13 14 Diode1
+DB11 14 15 Diode1
+DB12 15 16 Diode1
+DB13 16 17 Diode1
+DB14 17 18 Diode1
+DB15 18 19 Diode1
+DB16 19 20 Diode1
+DB17 20 0 Diode1
+
+
+
+
+
+
+
+
+.control
+*makes plots in color
+set hcopypscolor=0
+set color0=white
+set color1=black
+set color2=red
+set color3=blue
+set color4=violet
+set color5=rgb:3/8/0
+set color6=rgb:4/0/0
+
+
+
+
+
+
+
+
+
+
+tran 1e-5 0.2 0.01
+
+echo "op_TAB"
+print mean(v(4))
+print vecmax(v(4))-vecmin(v(4))
+print (1/(29.8*(vecmax(v(4))-vecmin(v(4))+abs(mean(v(4)-12))+10e-06)))
+echo "op_END"
+
+hardcopy trans1.ps v(4)-12
+echo trans1_FIG
+hardcopy transv4.ps v(4)
+echo transv4_FIG
+hardcopy transv2.ps v(2)
+echo transv2_FIG 
+quit
+.endc
+.end

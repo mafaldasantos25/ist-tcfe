@@ -1,0 +1,55 @@
+\section{Theoretical Analysis}
+\label{sec:analysis}
+
+In this section, the output voltage, voltage ripple and envelope detector output of the circuit are all analysed theoretically.
+
+\subsection{Envelope detector}
+
+Using an ideal diode model, we plotted the time response of the output voltage, as shown in figure .
+
+First we calculated $t_off$
+\begin{equation}
+  tOFF = (1/w) * atan(1/w/R/C).
+  \label{eq:menor toff}
+\end{equation}
+
+The output voltage of the envelope detector varies accordingly with $t_off$:
+
+For t<$t_off$
+\begin{equation}
+  vO(t) = v_s(t).
+  \label{eq:menor toff}
+\end{equation}
+
+For t>$t_off$
+\begin{equation}
+  vO(t) = abs(A*cos(w*tOFF)*exp(-(t(i)-tOFF)/R/C)).
+  \label{eq:maior toff}
+\end{equation}
+
+To simplify the calculations, we plotted for t>$t_off$ with the condition that if the full rectifier output was superior to $abs(A*cos(w*tOFF)*exp(-(t(i)-tOFF)/R/C))$, vO(t) would be equal to that output, so as not to calculate $t_ON$.
+
+\subsection{Output Voltage}
+
+We obtain the output voltage using a voltage regulator circuit.
+
+First we calculate $v_e$ 
+
+\begin{equation}
+  v_e = vO-median(vO).
+  \label{eq:ve}
+\end{equation}
+
+Then we use a voltage divider
+vo = (rd/(rd+R)) * vs
+\begin{equation}
+  vo = (rd/(rd+R)) * vs
+  \label{eq:vo}
+\end{equation}
+
+And lastly, we can calculate the voltage output
+
+\begin{equation}
+  Vout = VD + vo;
+  \label{eq:Vout}
+\end{equation}

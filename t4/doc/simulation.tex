@@ -1,0 +1,99 @@
+\section{Simulation Analysis}
+\label{sec:simulation}
+
+\subsection{Operating Point}
+The simulated results of the operating point analysis of the amplifier circuit are shown below in Table \ref{tab:sim_op}.
+
+
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|l|r|}
+    \hline    
+    {\bf Name} & {\bf Value [V]} \\ \hline
+    \input{../sim/iT4}
+  \end{tabular}
+  \caption{Simulated operating point results. }
+  
+  \label{tab:sim_op}
+\end{table}
+
+
+The relative error for the node voltages is aproximately -3.05\% for v(emit), -21.5\% for v(coll) and 20\% for V(emit2). These errors are considerably big, and are caused by the theoretical model used (BJT incrementl model).
+We can see that the results for VCE-VBE for the NPN BJT and the results for VEC-VEB for the PNP transistor confirm that they are operating in the Forward Active Region, like is intended for this circuit.
+
+\subsection{Frequency Analysis}
+The simulated results for the output impedance, input impedance, lower and upper 3dB cut off frequencies and the voltage gain are shown in tables \ref{tab:sim_freq} and \ref{tab:sim_freq2}, for a frequency in the pass-band region.
+
+Output Impedance:
+
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|l|r|}
+    \hline    
+    {\bf Name} & {\bf Value [Ohm]} \\ \hline
+    \input{../sim/opimp}
+  \end{tabular}
+  \caption{Simulated output impedance result. }
+  
+  \label{tab:sim_freq}
+\end{table}
+
+Voltage Gain (dB), cut off frequencies, input impedance and merit:
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|l|r|}
+    \hline    
+    {\bf Name} & {\bf Value [db]/[Ohm]} \\ \hline
+    \input{../sim/pT4}
+  \end{tabular}
+  \caption{Voltage Gain (dB), cut off frequencies, input impedance and merit simulated reults.For the variables with two values, only the first one is of interest (frequency analysis).}
+  
+  \label{tab:sim_freq2}
+\end{table}
+
+The relative errors of each one are:
+Error(Voltage Gain)=26.4\%
+Error(Input Impedance)=14.5\%
+Error(Output Impedance)=60\%
+
+These values are extremely high due to approximations made with the incremental BJT model.
+
+\subsection{Gain's frequency response}
+
+The plot of the Voltage Gain frequency response is shown below.
+
+\begin{figure}[h] \centering
+\includegraphics[width=0.5\linewidth]{../sim/trans1.pdf}
+\caption{Voltage Gain frequency response.}
+\label{fig:VG}
+\end{figure}
+
+In the theoretical analysis, only the pass-band gain value was obtained. We can see that even this value isn't constant in the pass-band. Before the lower cutt of frequency, we could compare the simulated result to a linear response of 20dB/dec. After the upper cutt of frequency, we can compare the graph to a linear response of -20dB/dec.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

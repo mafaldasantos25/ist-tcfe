@@ -1,0 +1,69 @@
+\section{Theoretical Analysis}
+\label{sec:analysis}
+
+In this section, the Audio amplifier is analysed theoretically.
+
+\subsection{OP analysis}
+
+The operating point analysis of the circuit was made by using the DC incremental BJT model for the circuit, ignoring the capacitors. 
+The results, using the equations shown in the lectures, are shown in table \ref{tab:tab2}.
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{ |c|c|}
+ \hline
+ {\bf Name} & {\bf Value[V]/[A]} \\
+ \hline
+ $*I_{B1}$ & \partialinput{4}{4}{../mat/tab2.tex} \\
+ \hline
+ $*I_{C1}$ & \partialinput{9}{9}{../mat/tab2.tex} \\
+ \hline
+  $*I_{E1}$ & \partialinput{14}{14}{../mat/tab2.tex} \\
+ \hline
+  $V_{emit}$ & \partialinput{19}{19}{../mat/tab2.tex} \\
+ \hline
+  $V_{coll}$ & \partialinput{24}{24}{../mat/tab2.tex} \\
+ \hline
+  $*I_{E2}$ & \partialinput{29}{29}{../mat/tab2.tex} \\
+ \hline
+  $*I_{C2}$ & \partialinput{34}{34}{../mat/tab2.tex} \\
+ \hline
+  $V_{emit2}$ & \partialinput{39}{39}{../mat/tab2.tex} \\
+ \hline
+ \end{tabular}
+  \caption{Theoretical OP values. Values with * are currents in Ampere.}
+  \label{tab:tab2}
+\end{table}
+
+\subsection{Gain and Impedance}
+
+With the DC results, we are able to calculate the input impedance, output impedance and gain of each stage of the circuit, as well as of the full circuit. The results are shown below.
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{ |c|c|}
+ \hline
+ {\bf Name} & {\bf Value[dB]/[Ohm]} \\
+ \hline\hline
+  $Gain (gain stage)$ & \partialinput{19}{19}{../mat/tab1.tex}\\
+ \hline
+ $*Input impedance (gain stage)$ & \partialinput{24}{24}{../mat/tab1.tex} \\
+ \hline
+ $*Output impedance (gain stage)$ & \partialinput{29}{29}{../mat/tab1.tex} \\
+ \hline
+   $Gain (output stage)$ & \partialinput{34}{34}{../mat/tab1.tex}\\
+ \hline
+ $*Input impedance (output stage)$ & \partialinput{39}{39}{../mat/tab1.tex} \\
+ \hline
+ $*Output impedance (output stage)$ & \partialinput{44}{44}{../mat/tab1.tex} \\
+ \hline
+  $Gain$ & \partialinput{4}{4}{../mat/tab1.tex}\\
+ \hline
+ $*Input impedance$ & \partialinput{9}{9}{../mat/tab1.tex} \\
+ \hline
+ $*Output impedance$ & \partialinput{14}{14}{../mat/tab1.tex} \\
+ \hline
+ \end{tabular}
+  \caption{Theoretical gain and impedance values. Values with * are impedances in Ohm}
+  \label{tab:tab1}
+\end{table}

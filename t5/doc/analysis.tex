@@ -1,0 +1,87 @@
+\section{Theoretical Analysis}
+\label{sec:analysis}
+
+In this section, the BandPass filter is analysed theoretically.
+
+Since the filter is active, it's composed of a high-pass filter ($R_1$
+and $C_1$), a low-pass filter ($R_2$ and $C_eq$) and a voltage
+amplifier.
+
+$C_eq$ is the approximate equivalent capacitance of $C_2$, $C_21$, $C_22$:
+
+\begin{equation}
+  C_eq=\frac{1}{\frac{1}{C_2}+\frac{1}{C_21}+\frac{1}{C_22}}.
+  \label{eq:n1}
+\end{equation}
+
+The voltage gain will be the product of the gain in each part of the circuit:
+
+\begin{equation}
+  Gain=20*log10(abs(\frac{R_1}{\frac{1}{s*C_1}+R_1}*(1+\frac{R_4}{R_3})*\frac{1}{1+R_2*s*C_2})).
+  \label{eq:n2}
+\end{equation}
+
+The central frequency is calculated using the lower cutt of frequency
+and the upper one, which are the poles of the low and high pass
+filters:
+\begin{equation}
+  central frequency=\sqrt{f_h*f_L}.
+  \label{eq:n3}
+\end{equation}
+
+Finnaly the input and output impedances are calculated considering an
+ideal op-amp model:
+
+\begin{equation}
+  input_impedance=\frac{1}{s*C_1}+R_1.
+  \label{eq:n4}
+\end{equation}
+
+\begin{equation}
+  output_impedance=\frac{1}{\frac{1}{R_2}+s*C_2}.
+  \label{eq:n5}
+\end{equation}
+
+\subsection{Central frequency analysis}
+
+First we will analyse the gain at central frequency.  
+The results, using the equations shown above, are shown in Table  \ref{tab:tab1}.
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{ |c|c|}
+ \hline
+ {\bf Name} & {\bf Value [Ohm]/[dB]/[Hz]} \\
+ \hline
+ $@Central frequency$ & \partialinput{4}{4}{../mat/tab1.tex} \\
+ \hline
+ $*Gain$ & \partialinput{9}{9}{../mat/tab1.tex} \\
+ \hline
+ $Z_{input}$ & \partialinput {14}{14}{../mat/tab1.tex}\\
+ \hline
+  $Z_{output}$ & \partialinput {19}{19}{../mat/tab1.tex}\\
+ \hline
+ 
+ \end{tabular}
+  \caption{Theoretical values at central frequency. The gain is in dB. Values with @ are frequecies in Hz.} 
+  \label{tab:tab1}
+\end{table}
+
+
+\subsection{Frequency Response}
+
+The voltage gain's frequency response can be seen in figure \ref{fig:fr} and the plot of the Phase frequency response is shown in Figure \ref{fig:fphase}.
+
+\begin{figure}[H]
+\centering
+  \includegraphics[width=0.5\linewidth]{fr.eps}
+  \captionof{figure}{Gains's Frequency Response.}
+  \label{fig:fr}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+  \includegraphics[width=0.5\linewidth]{fphase.eps}
+  \captionof{figure}{Phase Frequency Response.}
+  \label{fig:fphase}
+\end{figure}

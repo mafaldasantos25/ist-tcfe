@@ -36,6 +36,13 @@ Vout out 0 0 ac 1.0 sin(0 10m 1e5)
 Fteste dummy1 0 Vout 1
 Rteste dummy1 0 100
 .op
+<<<<<<< HEAD:t4/sim/impout.net
+=======
+.end
+
+.control
+
+>>>>>>> fea4b798e9c83a92c44cb074ddcac821039acd25:t4/t4.net
 
 
 .end
@@ -47,6 +54,14 @@ echo "op_TAB"
 print v(out)[40]/(v(dummy1)[40]/100)
 echo "op_END"
 
+<<<<<<< HEAD:t4/sim/impout.net
+=======
+*input impedance in kohm
+*print all
+
+plot abs(v(in2)/vin#branch/(-1000))
+print v(in2)[40]/vin#branch[40]/(-1000)
+>>>>>>> fea4b798e9c83a92c44cb074ddcac821039acd25:t4/t4.net
 
 
 quit

@@ -1,0 +1,92 @@
+\section{Simulation Analysis}
+\label{sec:simulation}
+
+\subsection{Central Frequency analysis}
+The simulated results for the central frequency and the merit of the circuit are shown below in Table \ref{tab:sim_cf} and \ref{tab:sim_outimp}.
+
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|l|r|}
+    \hline    
+    {\bf Name} & {\bf Value [V]} \\ \hline
+    \input{../sim/pT5}
+  \end{tabular}
+  \caption{Simulated Central frequency, Gain, Input impedance and Merit.  }
+  
+  \label{tab:sim_cf}
+\end{table}
+
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|l|r|}
+    \hline    
+    {\bf Name} & {\bf Value [Ohm]} \\ \hline
+    \input{../sim/ops}
+  \end{tabular}
+  \caption{Simulated output impedance result. }
+  
+  \label{tab:sim_outimp}
+\end{table}
+
+The relative errors of each one are:
+
+Error(Voltage Gain)=0,26\%
+
+Error(Central frequency)=1,4\%
+
+Error(abs Input Impedance)=0,005\%
+
+Error(abs Output Impedance)=0,89\%
+
+These values are within acceptable range. The error of the central frequency is slightly higher than the rest, wich is likely caused by approximations made in the calculations of the cut off frequencies (ideal op-amp and filters).
+
+
+
+\subsection{Frequency response}
+
+The plot of the Voltage Gain frequency response is shown Figure \ref{fig:VG} and the plot of the Phase frequency response is shown in Figure \ref{fig:Phase}.
+
+\begin{figure}[H] \centering
+\includegraphics[width=0.5\linewidth]{../sim/vo1f.pdf}
+\caption{Voltage Gain frequency response.}
+\label{fig:VG}
+\end{figure}
+
+\begin{figure}[H] \centering
+\includegraphics[width=0.5\linewidth]{../sim/vphase.pdf}
+\caption{Phase frequency response.}
+\label{fig:Phase}
+\end{figure}
+
+We can see the simulated gain frequency response plot is similar to the theoretical one, with some discrepancies in the band pass zone caused by the reasons already described.
+
+ As for the phase frequency response plots there are significant differences due to the ideal op-amp model used for the theoretical analysis.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
